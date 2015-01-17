@@ -5,32 +5,38 @@
 
         <link rel="stylesheet" href="http://code.ionicframework.com/contrib/ionic-contrib-tinder-cards/ionic.tdcards.css">
 
-        <title>Ionic Swipe Down</title>
+        <title>Chendr</title>
 
-        <link href="//code.ionicframework.com/1.0.0-beta.14/css/ionic.css" rel="stylesheet">
+        <link href="http://code.ionicframework.com/1.0.0-beta.14/css/ionic.css" rel="stylesheet">
         <link href="demo.css" rel="stylesheet">
 
         <script src="http://code.ionicframework.com/collide/0.0.4/collide.js"></script>
 
-        <script src="//code.ionicframework.com/1.0.0-beta.14/js/ionic.bundle.js"></script>
+        <script src="http://code.ionicframework.com/1.0.0-beta.14/js/ionic.bundle.js"></script>
         <script src="http://code.ionicframework.com/contrib/ionic-contrib-tinder-cards/ionic.tdcards.js"></script>
         <script src="demo.js"></script>
     </head>
     <body ng-app="starter" no-scroll>
         <ion-pane ng-controller="CardsCtrl">
             <ion-header-bar class="bar-default">
-                <h1 class="title">TD Cards</h1>
+                <button class="button icon ion-gear-a button-icon"></button>
+                <h1 class="title">Chendr</h1>
+                <button class="button icon ion-chatbubbles button-clear"></button>
             </ion-header-bar>
 
             <td-cards>
                 <td-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)" on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight($index)" on-partial-swipe="cardPartialSwipe(amt)" class="card-{{$index}}">
-                    <div class="image" ng-controller="CardCtrl">
-                        <div class="no-text">NOPE</div>
-                        <img ng-src="{{card.image}}">
-                        <div class="yes-text">LIKE</div>
+                    <div class="image" ng-controller="CardCtrl" style="background-image: url('{{card.image}}')">
+                        <div class="no-text overlayBox"><div class="noBox boxed">Nope</div></div>
+                        <div class="yes-text overlayBox"><div class="yesBox boxed" id="centerMe">Yes</div></div>
                     </div>
                 </td-card>
             </td-cards>
+            <div class="button-bar action-bar">
+                <a class="button button-icon icon ion-close chendr-no" ng-click="cardSwipedLeft($index)"></a>
+                <a class="button button-icon icon ion-information chendr-info"></a>
+                <a class="button button-icon icon ion-heart chendr-yes"></a>
+            </div>
         </ion-pane>
     </body>
 </html>
